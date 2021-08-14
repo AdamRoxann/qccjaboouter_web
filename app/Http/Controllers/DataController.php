@@ -9,6 +9,7 @@ use App\DataPenalty;
 use App\Imports\DataImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class DataController extends Controller
 {
@@ -39,6 +40,14 @@ class DataController extends Controller
         $data = DataPenalty::truncate();
         
         return redirect(url("/"));
+    }
+
+    public function cetak_pdf($id)
+    {
+        $data = DataPenalty::where("id", $id)->get();
+    
+        $pdf = PDF::loadview('pages.data_pdf',['data'=>$data]);
+        return $pdf->stream();
     }
 
 }

@@ -39,10 +39,10 @@ Route::get('/password', function() {
 });
 
 Route::get('/import/data', function() {
-
-    
     return view('import');
 });
+
+Route::get("/export/pdf/{id}", "DataController@cetak_pdf");
 
 Route::post('import', 'AdminController@import')->name('import');
 

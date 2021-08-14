@@ -95,6 +95,7 @@
                 <td>
                     <button class="btn btn-success">Edit</button> 
                     <button class="btn btn-danger">Delete</button> 
+                    <a class="btn btn-warning" href="{{url('/export/pdf/'.$datas->id)}}">Print To PDF</a> 
                 </td>
                 <td>{{$datas->id_tiket}}</td>
                 <td>{{$datas->siteid}}</td>
